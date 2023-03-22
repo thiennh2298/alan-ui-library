@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  --spinner-color: #349eff;
+  --spinner-color-80: #349eff80;
+  --spinner-color-85: #349eff85;
+  --spinner-color-90: #349eff90;
+  --spinner-color-95: #349eff95;
+  width: 11.2px;
+  height: 11.2px;
+  border-radius: 11.2px;
+  box-shadow: 28px 0px 0 0 var(--spinner-color-80),
+    22.7px 16.5px 0 0 var(--spinner-color-85),
+    8.68px 26.6px 0 0 var(--spinner-color-90),
+    -8.68px 26.6px 0 0 var(--spinner-color-95),
+    -22.7px 16.5px 0 0 var(--spinner-color);
+  animation: spin 1s infinite linear;
+}
+
+// keyframes
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toast {
+  --toast-color: rgb(34 197 94);
+  background: white;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  max-width: 420px;
+  width: 100%;
+  border-left: 4px solid var(--toast-color);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+  &__icon {
+    padding: 0 16px;
+  }
+
+  &__body {
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    p {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #888;
+    }
+  }
+
+  &__close {
+    padding: 0 16px;
+    margin-left: auto;
+  }
+}
+
+.toast + .toast {
+  margin-top: 24px;
+}
